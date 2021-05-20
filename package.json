@@ -1,0 +1,28 @@
+{
+  "name": "api-mysql",
+  "version": "1.0.0",
+  "description": "El servidor de aplicaciones para conexion con mysql",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "keywords": [
+    "mysql",
+    "express",
+    "api",
+    "server"
+  ],
+  "author": "dany",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "express-promise-router": "^4.1.0",
+    "express-resource": "^1.0.0",
+    "mysql2": "^2.2.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}
