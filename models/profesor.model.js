@@ -66,4 +66,25 @@ Profesor.findById=(idprofesor, result)=>{
     });
 };
 
+Profesor.updateById=(idprofesor,profesor,result)=>{
+    mysql.query(
+        "UPDATE profesor SET clavep= ?, nombre=?, apellidos=?, direccion=?, telefono=?, correo=? WHERE idprofesor=?",
+        [profesor.clavep, profesor.nombre, profesor.apellidos, profesor.direccion, profesor.telefono, profesor.correo, idprofesor],
+        (err, res)=>{
+            if(err){
+                console.log("error: ", err);
+                result(null, err);
+                return;
+            }
+            if(res.affectedRows == 0){
+                result({kind: "not_found"},null);
+                return;
+            }
+
+            console.log("update profesor: ", {idprofesor: idprofesor, ...profesor});
+            result(null, {idprofesor: idprofesor, ...profesor});
+        }
+    );
+};
+
 module.exports = Profesor;

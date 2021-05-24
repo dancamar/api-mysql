@@ -6,4 +6,5 @@ module.exports = app => {
     app.get("/buscar", profesor.findAll);
     app.delete("/eliminar/:idprofesor",profesor.delete);
     app.get("/BuscarOne/:idprofesor", profesor.findOne);
+    app.put("/Actualizar/:idprofesor", profesor.Actualizar);
 }

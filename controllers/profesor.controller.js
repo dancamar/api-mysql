@@ -69,3 +69,28 @@ exports.findOne=(req,res)=>{
     });
 };
 
+exports.Actualizar=(req,res)=>{
+  if(!req.body){
+    res.statu(400).send({
+      message: "Los campos deben ser llenados"
+    });
+  }
+
+  Profesor.updateById(
+    req.params.diprofesor,
+    new Profesor(req.body),
+    (err,data)=> {
+      if(err){
+        if(err.kind=== "not_found"){
+          res.status(404).send({
+            message: `No se encontro el profesor con el id ${req.params.idprofesor}.`
+          });
+        }else {
+          res.status(500).send({
+            message: "Error al actualizar el profesor con el id" + req.params.idprofesor
+          });
+        }
+      }else res.send(data);
+    }
+  );
+};
